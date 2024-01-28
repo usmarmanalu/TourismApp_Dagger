@@ -10,21 +10,17 @@ import com.dicoding.tourismapp.R
 import com.dicoding.tourismapp.core.domain.model.*
 import com.dicoding.tourismapp.core.ui.*
 import com.dicoding.tourismapp.databinding.*
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.*
 
 @Suppress("DEPRECATION")
+@AndroidEntryPoint
 class DetailTourismActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-
-    private val detailTourismViewModel: DetailTourismViewModel by viewModels {
-        factory
-    }
+    private val detailTourismViewModel: DetailTourismViewModel by viewModels()
     private lateinit var binding: ActivityDetailTourismBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityDetailTourismBinding.inflate(layoutInflater)
         setContentView(binding.root)

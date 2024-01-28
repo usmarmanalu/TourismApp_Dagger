@@ -2,10 +2,12 @@ package com.dicoding.tourismapp.core.di
 
 import com.dicoding.tourismapp.core.data.*
 import com.dicoding.tourismapp.core.domain.repository.*
-import dagger.Binds
-import dagger.Module
+import dagger.*
+import dagger.hilt.*
+import dagger.hilt.components.*
 
 @Module(includes = [NetworkModule::class, DatabaseModule::class])
+@InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
     @Binds

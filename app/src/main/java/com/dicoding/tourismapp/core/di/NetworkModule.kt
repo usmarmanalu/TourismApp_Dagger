@@ -2,6 +2,8 @@ package com.dicoding.tourismapp.core.di
 
 import com.dicoding.tourismapp.core.data.source.remote.network.*
 import dagger.*
+import dagger.hilt.*
+import dagger.hilt.components.*
 import okhttp3.*
 import okhttp3.logging.*
 import retrofit2.*
@@ -10,6 +12,7 @@ import java.util.concurrent.*
 
 
 @Module
+@InstallIn(SingletonComponent::class)
 class NetworkModule {
 
     @Provides
