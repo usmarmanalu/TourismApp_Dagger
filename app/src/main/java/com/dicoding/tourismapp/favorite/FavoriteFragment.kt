@@ -9,24 +9,16 @@ import com.dicoding.tourismapp.*
 import com.dicoding.tourismapp.core.ui.*
 import com.dicoding.tourismapp.databinding.*
 import com.dicoding.tourismapp.detail.*
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class FavoriteFragment : Fragment() {
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-
-    private val favoriteViewModel: FavoriteViewModel by viewModels{
-        factory
-    }
+    private val favoriteViewModel: FavoriteViewModel by viewModels()
 
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (requireActivity().application as MyApplication).appComponent.inject(this)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
